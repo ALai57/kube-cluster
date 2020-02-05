@@ -1,0 +1,10 @@
+<h1>Order #<%= @order.id %></h1>
+<table>
+    <% @order.attributes.each do |key, val| %>
+        <tr>
+            <td align="right"> <strong> <%= key %>: </strong></td>
+            <td>     </td>
+            <td> <%= val %> </td>
+        </tr>
+    <% end %>
+</table>

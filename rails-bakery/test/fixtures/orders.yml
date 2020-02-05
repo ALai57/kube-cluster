@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  created_date: 2020-02-03 20:55:08
+  total: 1.5
+
+two:
+  created_date: 2020-02-03 20:55:08
+  total: 1.5

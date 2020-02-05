@@ -1,0 +1,18 @@
+<h1>New order form</h1>
+<%= form_for @order, url: orders_path(:format => "json"), local:true do |form| %>
+    <table>
+        <% @pie_types.each do |pie| %>
+    <tr>
+        <td> <%= pie.name %> </td>
+        <td> <%= pie.price %> </td>
+        <td>
+            <%= form.number_field pie.name, value: 0, type: "number" %>
+        </td>
+    </tr>
+    <% end %>
+    </table>
+    <p>
+        <%= form.submit %>
+    </p>
+<% end %>
+

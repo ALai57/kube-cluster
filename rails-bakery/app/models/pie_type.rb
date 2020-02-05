@@ -1,0 +1,2 @@
+class PieType < ApplicationRecord
+end

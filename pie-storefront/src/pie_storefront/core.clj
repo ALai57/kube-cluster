@@ -27,7 +27,7 @@
                              (* n))])))
 
 (defroutes handler
-  (GET "/api/v1/ping" [] {:status 200 :body "Hello, pie!"})
+  (GET "/api/v1/ping" [] {:status 200 :body "Hello, from the pie storefront!"})
   (context "/api/v1/orders" []
            (PUT "/" request
                 (let [itemized-list (->> request
@@ -38,7 +38,8 @@
                                       :total (->> itemized-list
                                                   (map last)
                                                   (reduce +))
-                                      :id "1234"}}))
+                                      :bakery "Not implemented yet"
+                                      :id (.toString (java.util.UUID/randomUUID))}}))
            (GET "/:id" [id]
                 (println "requested order id " id))))
 
