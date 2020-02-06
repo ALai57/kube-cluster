@@ -1,10 +1,24 @@
 <h1>Order #<%= @order.id %></h1>
 <table>
     <% @order.attributes.each do |key, val| %>
+        <% next if key == "details" %>
         <tr>
             <td align="right"> <strong> <%= key %>: </strong></td>
             <td>     </td>
             <td> <%= val %> </td>
+        </tr>
+    <% end %>
+</table>
+<h3>Details</h3>
+<table class="details">
+    <tr>
+        <th>Pie</th>
+        <th>Qty</th>
+    </tr>
+    <% @details.each do |pie, qty| %>
+        <tr>
+            <td align="right"> <%= pie %> </td>
+            <td align="center"> <%= qty %> </td>
         </tr>
     <% end %>
 </table>

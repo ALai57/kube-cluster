@@ -1,3 +1,5 @@
+require 'json'
+
 class OrdersController < ApplicationController
   def new
     @pie_types = PieType.all
@@ -5,20 +7,19 @@ class OrdersController < ApplicationController
   end
 
   def create
-    puts "Hello! create"
     @order = Order.new(order_params)
-    puts @order
     @order.save
     redirect_to @order
-    # render plain: params[:order].inspect
   end
 
   def show
     @order = Order.find(params[:id])
+    @details = JSON.parse @order.details
   end
 
   def index
     @orders = Order.all
+    puts @orders
   end
 
   private
@@ -27,7 +28,7 @@ class OrdersController < ApplicationController
 
     total = calculate_total_price(params[:order])
 
-    {"details" => params[:order],
+    {"details" => params[:order].to_json,
      "total" => total}
   end
 
